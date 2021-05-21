@@ -1,10 +1,10 @@
 
-public class Solution_designParkingSystem {
+public class DesignParkingSystem {
 	int bigSpots;
     int medSpots;
     int smallSpots;
 
-    public Solution_designParkingSystem(int big, int medium, int small) {
+    public DesignParkingSystem(int big, int medium, int small) {
         this.bigSpots = big;
         this.medSpots = medium;
         this.smallSpots = small;
