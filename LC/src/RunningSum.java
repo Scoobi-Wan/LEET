@@ -1,5 +1,5 @@
 
-public class Solution_runningSum {
+public class RunningSum {
 	public int[] runningSum(int[] nums) {
         int[] sumArr = new int[nums.length];
         int runningSum = 0;
