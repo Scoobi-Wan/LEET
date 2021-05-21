@@ -1,5 +1,5 @@
 
-public class Soultion_numIdenticalPairs {
+public class NumIdenticalPairs {
 	public int numIdenticalPairs(int[] nums) {
         int goodPairs = 0;
         for(int i = 0; i < nums.length - 1; i++) {
