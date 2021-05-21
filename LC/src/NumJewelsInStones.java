@@ -1,5 +1,5 @@
 
-public class Solution_numJewelsInStones {
+public class NumJewelsInStones {
 	public int numJewelsInStones(String jewels, String stones) {
         int numOfStoneJewels = 0;
         for (int i = 0; i < stones.length(); i++) {
