@@ -1,5 +1,5 @@
 
-public class Solution_shuffle {
+public class Shuffle {
 	public int[] shuffle(int[] nums, int n) {
         int[] shuffled = new int[nums.length];
         int i = 0;
