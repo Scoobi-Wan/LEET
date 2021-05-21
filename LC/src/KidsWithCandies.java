@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution_kidsWithCandies {
+public class KidsWithCandies {
 	public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
 	    
         List<Boolean> canHaveMostCandy = new ArrayList<Boolean>();
