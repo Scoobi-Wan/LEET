@@ -1,57 +1,61 @@
 import java.util.ArrayList;
 
 public class AddTwoNumbers {
-	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-		ListNode head = new ListNode();
-		ListNode curr = head;
+	class Solution {
+	    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+	        
+	        // Used to return head of list at the end of the function
+	        ListNode head = l1;
+	        
+	        // curr, prev pointers used to point to ListNodes;
+	        ListNode curr = head;
+	        ListNode prev = null;
+	        
+	        // carryDigit is what needs to be carried (if anything) to the next column
+	        int carryDigit = 0;
+	        
+	        // digitSum is used to calculate the sum digit of the current column, 
+	        int digitSum = 0;
+	        
+	        while(l1 != null && l2 != null) {
 
-		ArrayList<Integer> sum = new ArrayList<Integer>();
+	            digitSum = l1.val + l2.val + carryDigit;
+	                
+	            carryDigit = digitSum / 10;
+	            digitSum = digitSum % 10;
+	            
+	            l1.val = digitSum;
+	            prev = l1;
+	            l1 = l1.next;
+	            l2 = l2.next;
 
-		int carryDigit = 0;
-
-		while (l1 != null || l2 != null) {
-
-			if (l1 == null) {
-				while (l2 != null) {
-					sum.add(l2.val);
-					l2 = l2.next;
-				}
-			} else if (l2 == null) {
-				while (l1 != null) {
-					sum.add(l1.val);
-					l1 = l1.next;
-				}
-			} else {
-
-				int digit1 = l1.val;
-				int digit2 = l2.val;
-				int digitSum = digit1 + digit2 + carryDigit;
-				if (digitSum >= 10) {
-					carryDigit = 1;
-					digitSum -= 10;
-				} else {
-					carryDigit = 0;
-				}
-				sum.add(digitSum);
-				l1 = l1.next;
-				l2 = l2.next;
-
-			}
-
-		}
-		if (sum.get(sum.size() - 1) == 0) {
-			sum.remove(sum.size() - 1);
-		}
-		
-		
-		for (int i = 0; i < sum.size(); i++) {
-			curr.val = sum.get(i);
-			curr.next = new ListNode();
-			curr = curr.next;
-		}
-
-		return head;
+	        }
+	        
+	        if (l1 == null && l2 != null) {
+	            l1 = l2;
+	            prev.next = l1;
+	        }
+	        
+	        
+	        while (l1 != null) {
+	            
+	            int digit1 = l1.val;
+	            digitSum = digit1 + carryDigit;       
+	            carryDigit = digitSum / 10;
+	            digitSum = digitSum % 10;
+	            l1.val = digitSum;
+	            prev = l1;
+	            l1 = l1.next;            
+	        }
+	        
+	        if (carryDigit > 0) {
+	            l1 = new ListNode(carryDigit);
+	            prev.next = l1;
+	        }
+	        
+	        return head;
+	    }
 	}
 	
 	private class ListNode {
